@@ -5,6 +5,7 @@
 * lite weight sass based grid with variables, mixes, and some standard container definitions
 
 ## Getting Started
+- REQUIRE node ^8.9.4 
 - git clone https://github.com/JackBeNimbleBeQuick/responsiveSASS.git
 - cd src
 - npm install -g node-sass
