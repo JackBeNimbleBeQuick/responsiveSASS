@@ -28,7 +28,7 @@ To provide the basics for:
   - is start of project / name-spaced styles for your project
     * edit to meet your needs
 - _vars/\_var:\_ 
-  - hold the grid setup, you may want to clean this to support your color theming scheme
+  - holds the grid setup, color, font, etc. variables
     * edit to meet your needs
 - _vars/\_mixes:\_ 
   - some sample mix-ins are provided
