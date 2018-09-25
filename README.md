@@ -11,7 +11,7 @@
 - npm install -g node-sass
 - npm install
 
-### Command lines are fun within responsiveSASS/src 
+### one package.json script to run
 - npm run css
 
 ### Goals
