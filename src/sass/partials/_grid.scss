@@ -15,25 +15,25 @@
 [class*=visible-]{
   display: none;
 }
-// [class*=push-] {
-//   position: relative;
-//   float: none;;
-//   left: inherit;;
-// }
-// [class*=pull-] {
-//   position: relative;
-//   float: none;;
-//   right: inherit;;
-// }
-// .show-all{
-//   [class*=hide-] {
-//     display: grid;
-//   }
-//   [class*=visible-] {
-//     display: block;
-//     visibility: visible;
-//   }
-// }
+[class*=push-] {
+  position: relative;
+  float: none;;
+  left: inherit;;
+}
+[class*=pull-] {
+  position: relative;
+  float: none;;
+  right: inherit;;
+}
+.show-all{
+  [class*=hide-] {
+    display: grid;
+  }
+  [class*=visible-] {
+    display: block;
+    visibility: visible;
+  }
+}
 .clearfix {
   display: table;
   clear: both;
@@ -42,77 +42,19 @@
   $min: nth($dims,1);
   $max : nth($dims,2);
   @media (min-width: #{$min}px) and (max-width: #{$max}px){
-  //@media (max-width: #{$min}px){
-    // ul.row.framing li.visible-#{$size},
-    .visible-#{$size}{
-      display: block;
-      visibility: visible;
+    @for $i from 1 through $grid-columns{
+      .pull-#{$size}-#{$i} {
+        right: percentage($i / $grid-columns);
+      }
     }
-    // .framing.pulling .visible-#{$size}{
-    //   border: 1px solid;
-    //   border-radius: 5px;
-    //   padding: 5px;
-    // }
-    [class*=hide-#{$size}] {
-      display: none;
-      visibility: hidden;
+    @for $i from 1 through $grid-columns{
+      .push-#{$size}-#{$i} {
+        left: percentage($i / $grid-columns);
+      }
     }
-    // [class*=push-#{$size}-] {
-    //   position: relative;
-    //   float: left;
-    // }
-    // [class*=push-#{$size}-]:before,
-    // [class*=push-#{$size}-]:after {
-    //   clear: both;
-    // }
-    // [class*=pull-#{$size}-] {
-    //   position: relative;
-    //   float: right;
-    // }
-    // [class*=pull-#{$size}-]:before,
-    // [class*=pull-#{$size}-]:after {
-    //   clear: right;
-    // }
-    // [class*=offset-#{$size}-] {
-    //   position: relative;
-    //   clear: both;
-    // }
-
-    // @for $i from 1 through $grid-columns{
-    //   .pull-#{$size}-#{$i} {
-    //     right: percentage($i / $grid-columns);
-    //   }
-    // }
-    // @for $i from 1 through $grid-columns{
-    //   .push-#{$size}-#{$i} {
-    //     left: percentage($i / $grid-columns);
-    //   }
-    // }
-    // @for $i from 1 through $grid-columns{
-    //   .offset-#{$size}-#{$i} {
-    //     margin-left: percentage($i / $grid-columns);
-    //   }
-    // }
-  }
-}
-@each $size, $width in $grids{
-
-  /* */
-  // @media (max-width: #{$width}px){
-  //   .banner{
-  //     &.main{
-  //       h1{
-  //         font-size: unquote((2*( $width / $max-size))+'em');
-  //       }
-  //     }
-  //   }
-  // }
-
-  @media (max-width: #{$width}px){
-
-    @each $align in $alignments{
-      .text-align-#{$size}-#{$align}{
-        text-align: #{$align};
+    @for $i from 1 through $grid-columns{
+      .offset-#{$size}-#{$i} {
+        margin-left: percentage($i / $grid-columns);
       }
     }
 
@@ -124,8 +66,26 @@
       }
     }
 
+
+    @each $align in $alignments{
+      .text-align-#{$size}-#{$align}{
+        text-align: #{$align};
+      }
+    }
+
+    [class*=hide-#{$size}] {
+      display: none;
+      visibility: hidden;
+    }
+
+    .visible-#{$size}{
+      display: block;
+      visibility: visible;
+    }
   }
+
 }
+
 
 /**
  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
