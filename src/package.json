@@ -4,7 +4,7 @@
   "description": "Kickstarter for responsive sass base styling that can be inserted into any build",
   "main": "public/index.html",
   "dependencies": {
-    "node-sass": "^4.9.3"
+    "node-sass": "^7.0.0"
   },
   "devDependencies": {},
   "scripts": {
